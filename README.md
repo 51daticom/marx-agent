@@ -1,7 +1,7 @@
 # marx-agent
 日志文件监控报警（支持企业微信机器人、钉钉机器人）
 
-#快速使用
+# 快速使用
 
 * 编译
 
@@ -15,9 +15,11 @@ go build -o marx-agent
 ```
 
 * 配置文件
-mv config.nginx.example.in config.ini;
 
+```
+mv config.nginx.example.in config.ini;
 vim config.in
+```
 
 ```
 [pro]
