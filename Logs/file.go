@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"github.com/howeyc/fsnotify"
 	"log"
-	"marx/Configs"
-	"marx/Message"
+	"marx-agent/Configs"
+	"marx-agent/Message"
 
 	"os"
 	"regexp"

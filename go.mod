@@ -1,4 +1,4 @@
-module marx
+module marx-agent
 
 go 1.11
 
