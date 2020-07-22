@@ -1,4 +1,4 @@
-module marx-agent
+module github.com/51daticom/marx-agent
 
 go 1.11
 
