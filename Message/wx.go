@@ -3,7 +3,7 @@ package Message
 import (
 	"bytes"
 	"encoding/json"
-	"marx-agent/Configs"
+	"github.com/51daticom/marx-agent/Configs"
 	"net/http"
 )
 

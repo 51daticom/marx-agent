@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"github.com/go-ini/ini"
-	"marx-agent/Configs"
-	"marx-agent/Logs"
+	"github.com/51daticom/marx-agent/Configs"
+	"github.com/51daticom/marx-agent/Logs"
 
 	"strings"
 )
