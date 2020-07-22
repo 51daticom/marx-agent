@@ -15,7 +15,8 @@ go build -o marx-agent
 ```
 
 * 配置文件
-mv config.nginx.example.in config.ini
+mv config.nginx.example.in config.ini;
+
 vim config.in
 
 ```
