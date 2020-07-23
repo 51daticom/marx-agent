@@ -2,17 +2,18 @@ package Logs
 
 import (
 	"bytes"
-	"github.com/howeyc/fsnotify"
-	"log"
 	"github.com/51daticom/marx-agent/Configs"
 	"github.com/51daticom/marx-agent/Message"
+	"github.com/howeyc/fsnotify"
+	"log"
+	"time"
 
 	"os"
 	"regexp"
 	"strings"
 )
 
-var filebuf = make(chan byte, 2>>30)
+var filebuf = make(chan byte, 2<<30)
 var slip = []byte("\n")
 
 var lines = make(chan string, 1000)
@@ -28,13 +29,15 @@ func getLog(config *Configs.Config) {
 	fileInfo, _ := f.Stat()
 	offset := fileInfo.Size()
 	for {
-		watchError := watcher.Watch(config.GetLog())
+		logFile := config.GetLog()
+		watchError := watcher.Watch(logFile)
+
 		if watchError != nil {
 			log.Println(watchError.Error())
 		} else {
 			select {
 			case <-watcher.Event:
-				f2, err := os.Open(config.GetLog())
+				f2, err := os.Open(logFile)
 				if err != nil {
 					log.Println("open file error:" + err.Error())
 				} else {
@@ -53,6 +56,8 @@ func getLog(config *Configs.Config) {
 				}
 			case err := <-watcher.Error:
 				log.Println("watcher error:", err)
+			default:
+				time.Sleep(time.Second)
 			}
 		}
 	}
