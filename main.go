@@ -6,7 +6,6 @@ import (
 	"github.com/go-ini/ini"
 	"github.com/51daticom/marx-agent/Configs"
 	"github.com/51daticom/marx-agent/Logs"
-
 	"strings"
 )
 

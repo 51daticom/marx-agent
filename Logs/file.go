@@ -42,6 +42,11 @@ func getLog(config *Configs.Config) {
 					log.Println("open file error:" + err.Error())
 				} else {
 					for {
+						fileInfo2, _ := f2.Stat()
+						newOffset := fileInfo2.Size()
+						if offset > newOffset {
+							offset = 0
+						}
 						var tmp [10240]byte
 						n, _ := f2.ReadAt(tmp[:], offset)
 						if n == 0 {
