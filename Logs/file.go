@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-var filebuf = make(chan byte, 2<<30)
+var filebuf = make(chan byte)
 var slip = []byte("\n")
 
 var lines = make(chan string, 1000)
@@ -89,6 +89,7 @@ func readFileBuf() {
 }
 
 func DoLine(config *Configs.Config) {
+	filebuf = make(chan byte, config.Buf*1024*1024)
 	go func() {
 		for {
 			select {
